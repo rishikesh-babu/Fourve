@@ -3,7 +3,7 @@ const postRouter = require('./postRouter')
 const router = express.Router()
 
 router.use((req, res, next) => {
-    console.log('Routes: api')
+    console.log('Routes: API')
     next()
 })
 

@@ -1,14 +1,15 @@
 const express = require('express')
-const { createPost } = require('../controller/postController')
+const { createPost, getAllPost } = require('../controller/postController')
 const upload = require('../middleware/multer')
 const router = express.Router()
 
 router.use((req, res, next) => {
-    console.log('Routes: post')
+    console.log('Routes: Post')
     next()
 })
 
-router.post('/create', upload.array('images', 5), createPost)
+router.post('/create-post', upload.array('images', 5), createPost)
+router.get('/get-all-post', getAllPost)
 
 const postRouter = router
 module.exports = postRouter 

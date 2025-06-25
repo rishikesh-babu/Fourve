@@ -24,23 +24,23 @@ async function createPost(req, res, next) {
 
         await post.save()
 
-        const postId = post._id 
-        
+        const postId = post._id
+
         for (const file of files) {
             const result = (await cloudinaryInstance.uploader.upload(file.path, {
-                folder: 'Fourve', 
-                public_id: `${file.filename}_${Date.now()}`, 
+                folder: 'Fourve',
+                public_id: `${file.filename}_${Date.now()}`,
                 resource_type: 'auto',
             }))
 
             const media = new Media({
                 url: result.secure_url,
-                type: result.resource_type, 
+                type: result.resource_type,
                 postId,
             })
 
             await media.save()
-        } 
+        }
 
         res.status(200).json({ message: 'Post Created' })
     } catch (err) {
@@ -48,6 +48,30 @@ async function createPost(req, res, next) {
     }
 }
 
+async function getAllPost(req, res, next) {
+    try {
+        console.log('Routes: Get all Post')
+
+        const posts = await Post.find().sort({ createdAd: -1 })
+
+        const result = []
+
+        for (const post of posts) {
+            const media = await Media.find({ postId: post._id })
+
+            result.push({
+                ...post.toObject(),
+                media
+            })
+        }
+
+        res.status(200).json({ message: 'Posts fetched', data: result })
+    } catch (err) {
+        next(err)
+    }
+}
+
 module.exports = {
-    createPost
+    createPost,
+    getAllPost
 }
