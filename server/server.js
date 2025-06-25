@@ -10,6 +10,11 @@ dotenv.config()
 const app = express()
 connectDB()
 
+app.use(cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL, 
+    // methods: ['GET', 'POST', 'DELETE']
+}))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
