@@ -14,7 +14,7 @@ function ImageModal({ media }) {
                         item?.type === "image" ? (
                             <img src={item?.url} alt="" className="size-[300px] sm:size-[500px] md:size-[600px] object-cover " />
                         ) : item?.type === "video" ? (
-                            <video src={item?.url} controls className="size-[300px] object-cover" />
+                            <video src={item?.url} controls className="size-[300px] sm:size-[500px] md:size-[600px] object-cover" />
                         ) : null
                     ))}
                 </div>
