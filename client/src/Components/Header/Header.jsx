@@ -12,11 +12,10 @@ function Header() {
 
     const menu = [
         { value: "View", link: "/" },
-        { value: "Create", link: "/create-post", },
+        { value: "Upload", link: "/create-post", },
     ];
     return (
-        <header className="p-3 w-full fixed bg-white shadow-lg flex justify-between items-center">
-            {/* Logo */}
+        <header className="p-3 w-full z-20 fixed bg-white shadow-lg flex justify-between items-center">
             <div className="text-2xl font-bold text-indigo-600">
                 <Link to={'/'}>
                     Fourve
@@ -27,10 +26,10 @@ function Header() {
                 {openMenu ? closeIcon : menuIcon}
             </button>
 
-            <section id='menu' className={`px-5 py-3 text-2xl text-blue-700 font-semibold rounded-xl bg-white shadow-2xl sm:shadow-none sm:bg-transparent absolute sm:relative top-16 sm:top-0 right-0 transition-all duration-300 ease-in-out  ${openMenu ? 'opacity-85 pointer-events-auto' : 'opacity-0 sm:opacity-100 pointer-events-none sm:pointer-events-auto'}`}>
+            <section className={`px-5 py-3 w-[180px] text-2xl text-blue-700 font-semibold rounded-xl bg-white shadow-2xl sm:shadow-none sm:bg-transparent absolute sm:relative top-16 sm:top-0 right-0 transition-all duration-300 ease-in-out  ${openMenu ? 'opacity-85 pointer-events-auto' : 'opacity-0 sm:opacity-100 pointer-events-none sm:pointer-events-auto'}`}>
                 <div className=' flex flex-col sm:flex-row justify-center gap-3 sm:gap-7'>
                     {menu?.map((item, index) => (
-                        <Link to={item?.link} key={index} onClick={handleMenu} className='cursor-pointer relative'>
+                        <Link to={item?.link} key={index} onClick={handleMenu} className='cursor-pointer relative '>
                             {item?.value}
                         </Link>
                     ))}
