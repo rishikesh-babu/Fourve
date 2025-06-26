@@ -6,6 +6,7 @@ import ImageModal from '../../Components/Modal/ImageModal';
 function Home() {
     const [postData, setPostData] = useState([])
     const [selectedMedia, setSelectedMedia] = useState(null);
+    const [isopen, setIsOpen] = useState(false)
 
     useEffect(() => {
         getAllPost()
@@ -24,13 +25,19 @@ function Home() {
 
     function openImage(media) {
         setSelectedMedia(media);
+        setIsOpen(true)
         document.getElementById('imageModel').showModal()
+    }
+    
+    function closeImage() {
+        setSelectedMedia(null)
+        setIsOpen(false)
     }
     return (
         <div className="min-h-[80vh] p-4">
             <div className=" pb-2 mb-8 text-center text-4xl font-bold border-b">Gallery</div>
 
-            <div className=' w-fit mx-auto flex justify-start flex-wrap gap-1 '>
+            <div className=' w-fit mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1 '>
                 {postData?.map((post, postIndex) => (
                     <div
                         onClick={() => openImage(post.media)}
@@ -38,7 +45,7 @@ function Home() {
                         className="relative overflow-x-auto whitespace-nowrap hover:cursor-pointer"
                     >
                         {/* Preview Container */}
-                        <div className="relative size-[110px] sm:size-[200px] md:size-[250px] ">
+                        <div className="relative size-full ">
                             {/* Top-left badge if multiple media */}
                             {post?.media?.length > 1 && (
                                 <div className="absolute z-10 top-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded flex items-center gap-1">
@@ -66,7 +73,7 @@ function Home() {
                 ))}
             </div>
 
-            <ImageModal media={selectedMedia} />
+            <ImageModal isopen={isopen} closeImage={closeImage} media={selectedMedia} />
         </div>
     )
 }

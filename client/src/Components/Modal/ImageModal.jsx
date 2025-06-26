@@ -1,25 +1,29 @@
-function ImageModal({ media }) {
-    return (
-        <dialog id="imageModel" className="modal">
-            <div className="modal-box max-w-full  ">
-                <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <button className="btn btn-sm btn-circle btn-ghost text-2xl absolute right-2 top-2">
-                        ✕
-                    </button>
-                </form>
+function ImageModal({ media, isopen, closeImage }) {
+    if (!isopen || !media) return
 
-                <div className="mt-5 mx-auto w-fit space-y-2">
+    return (
+
+
+        <div className="absolute top-0 left-0 z-30 w-full pt-16 bg-black/50 ">
+            <div>
+                <button
+                    onClick={closeImage}
+                    className="btn btn-xl btn-circle btn-ghost text-white/90 hover:text-black/90 transition-all duration-500 border-none absolute top-0 right-0 "
+                >
+                    ✕
+                </button>
+
+                <div className=" border-4 h-[90dvh] space-y-5 overflow-y-auto">
                     {media?.map((item, index) => (
                         item?.type === "image" ? (
-                            <img src={item?.url} alt="" className="size-[300px] sm:size-[500px] md:size-[600px] object-cover " />
+                            <img src={item?.url} alt="" className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto object-contain " />
                         ) : item?.type === "video" ? (
-                            <video src={item?.url} controls className="size-[300px] sm:size-[500px] md:size-[600px] object-cover" />
+                            <video src={item?.url} controls className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto object-contain" />
                         ) : null
                     ))}
                 </div>
             </div>
-        </dialog>
+        </div>
     );
 };
 
