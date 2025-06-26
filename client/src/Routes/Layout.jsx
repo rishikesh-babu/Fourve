@@ -6,7 +6,7 @@ function Layout() {
     return (
         <div>
             <Header />
-            <div className='pt-[4rem] sm:pt-[5rem]'>
+            <div className='pt-[4rem] sm:pt-[5rem] h-[100dvh] '>
                 <Outlet />
             </div>
         </div>

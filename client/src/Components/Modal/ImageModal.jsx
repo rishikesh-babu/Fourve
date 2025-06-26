@@ -8,7 +8,7 @@ function ImageModal({ media, isopen, closeImage }) {
             <div>
                 <button
                     onClick={closeImage}
-                    className="btn btn-xl btn-circle btn-ghost text-white/90 hover:text-black/90 transition-all duration-500 border-none absolute top-0 right-0 "
+                    className="btn btn-xl btn-circle btn-ghost text-white hover:text-black/90 transition-all duration-500 border-none absolute top-0 right-0 "
                 >
                     ✕
                 </button>

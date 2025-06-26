@@ -5,12 +5,18 @@ import ImageModal from '../../Components/Modal/ImageModal';
 
 function Home() {
     const [postData, setPostData] = useState([])
+    const [filterMedia, setFilterMedia] = useState('all')
     const [selectedMedia, setSelectedMedia] = useState(null);
     const [isopen, setIsOpen] = useState(false)
 
     useEffect(() => {
         getAllPost()
     }, [])
+
+    const filteredPostData = filterMedia === 'all' ? postData : postData?.map((post) => ({
+        ...post,
+        media: post.media.filter((item) => item.type === filterMedia)
+    }))
 
     function getAllPost() {
         axiosInstance({
@@ -28,7 +34,7 @@ function Home() {
         setIsOpen(true)
         document.getElementById('imageModel').showModal()
     }
-    
+
     function closeImage() {
         setSelectedMedia(null)
         setIsOpen(false)
@@ -37,8 +43,19 @@ function Home() {
         <div className="min-h-[80vh] p-4">
             <div className=" pb-2 mb-8 text-center text-4xl font-bold border-b">Gallery</div>
 
-            <div className=' w-fit mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1 '>
-                {postData?.map((post, postIndex) => (
+            <select
+                id="hotelSelect"
+                className='w-full p-2.5 bg-white border border-gray-300 rounded-lg shadow-sm text-lg sm:text-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                value={filterMedia}
+                onChange={(e) => setFilterMedia(e.target.value)}
+            >
+                <option value="all">All</option>
+                <option value="image">Image</option>
+                <option value="video">Video</option>
+            </select>
+
+            <div className='mt-10 w-fit mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1 '>
+                {filteredPostData?.map((post, postIndex) => (
                     <div
                         onClick={() => openImage(post.media)}
                         key={postIndex}

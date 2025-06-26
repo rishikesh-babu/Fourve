@@ -46,12 +46,12 @@ function CreatePost() {
     }
 
     return (
-        <div className='h-[87vh] pt-6 flex flex-col justify-between'>
+        <div className='pt-6 h-full flex flex-col justify-between'>
             <div className='text-center text-3xl font-semibold '>
                 Upload Image
             </div>
 
-            <div className='overflow-x-auto whitespace-nowrap flex items-center'>  {/* How can i make this div center  */}
+            <div className='overflow-x-auto whitespace-nowrap flex items-center'>
                 <div className='mx-auto px-5 space-x-4'>
                     {files?.map((file, index) => {
                         const src = URL.createObjectURL(file)
