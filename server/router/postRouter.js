@@ -8,7 +8,7 @@ router.use((req, res, next) => {
     next()
 })
 
-router.post('/create-post', upload.array('images', 5), createPost)
+router.post('/create-post', upload.array('images'), createPost)
 router.get('/get-all-post', getAllPost)
 
 const postRouter = router

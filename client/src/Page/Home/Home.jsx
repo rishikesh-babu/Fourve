@@ -30,7 +30,7 @@ function Home() {
         <div className="min-h-[80vh] p-4">
             <div className=" pb-2 mb-8 text-center text-4xl font-bold border-b">Gallery</div>
 
-            <div className='border w-fit mx-auto flex justify-start flex-wrap gap-1 '>
+            <div className=' w-fit mx-auto flex justify-start flex-wrap gap-1 '>
                 {postData?.map((post, postIndex) => (
                     <div
                         onClick={() => openImage(post.media)}

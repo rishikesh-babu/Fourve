@@ -6,21 +6,18 @@ async function createPost(req, res, next) {
     try {
         console.log('Routes: Create Post')
 
-        const { title, description } = req.body
+        // const { title, description } = req.body
         const files = req.files
 
-        if (!title || !description) {
-            return res.status(400).json({ message: 'Title and description Required' })
-        }
+        // if (!title || !description) {
+        //     return res.status(400).json({ message: 'Title and description Required' })
+        // }
 
-        if (!files) {
-            return res.status(400).json({ message: 'Media required' })
-        }
+        // if (!files) {
+        //     return res.status(400).json({ message: 'Media required' })
+        // }
 
-        const post = new Post({
-            title,
-            description,
-        })
+        const post = new Post({})
 
         await post.save()
 
@@ -42,7 +39,7 @@ async function createPost(req, res, next) {
             await media.save()
         }
 
-        res.status(200).json({ message: 'Post Created' })
+        res.status(200).json({ message: 'File uploaded' })
     } catch (err) {
         next(err)
     }
