@@ -5,7 +5,7 @@ A responsive gallery web application built as part of the Fourve Internship Task
 ---
 ## 🔗 Live Demo
 
-[Visit the site](https://your-live-demo-url.com)
+[Visit the site](fourve-zop1.onrender.com/)
 
 ---
 ## Setup Instruction
