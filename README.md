@@ -32,16 +32,17 @@ A responsive gallery web application built as part of the Fourve Internship Task
 The app uses two MongoDB collections: `posts` and `media`.
 
 ### 📄 Post Schema (`posts` collection)
+```js
 {
   createdAt: {
     type: Date,
     default: Date.now
   }
 }
-
+```
 
 ### 📄 Media Schema (`media` collection)
-
+```js
 {
    url: {
         type: String, 
@@ -62,3 +63,4 @@ The app uses two MongoDB collections: `posts` and `media`.
         default: Date.now
     }
 }
+```
