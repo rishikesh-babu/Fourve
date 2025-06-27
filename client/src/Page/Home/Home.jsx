@@ -17,6 +17,9 @@ function Home() {
         ...post,
         media: post.media.filter((item) => item.type === filterMedia)
     }))
+    .filter((post) => post.media.length > 0)
+
+    console.log('filteredPostData :>> ', filteredPostData);
 
     function getAllPost() {
         axiosInstance({
@@ -54,7 +57,7 @@ function Home() {
                 <option value="video">Video</option>
             </select>
 
-            <div className='mt-10 w-fit mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1 '>
+            <div className='mt-10 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 '>
                 {filteredPostData?.map((post, postIndex) => (
                     <div
                         onClick={() => openImage(post.media)}
@@ -64,7 +67,7 @@ function Home() {
                         {/* Top-left badge if multiple media */}
                         {post?.media?.length > 1 && (
                             <div className="absolute z-10 top-2 left-2 px-2 py-1 bg-black text-white text-xs rounded flex items-center gap-1">
-                                <FaImages className="text-sm" />
+                                <FaImages className="text-lg" />
                                 <span>{post.media.length}</span>
                             </div>
                         )}
@@ -82,7 +85,7 @@ function Home() {
                                 className="size-full object-cover border-2 border-blue-500 rounded-lg"
                                 controls
                             />
-                        ) : null}
+                        ) : ''}
                     </div>
                 ))}
             </div>

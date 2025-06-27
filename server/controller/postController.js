@@ -17,6 +17,9 @@ async function createPost(req, res, next) {
         //     return res.status(400).json({ message: 'Media required' })
         // }
 
+        if (files.length === 0) {
+            return res.status(400).json({ message: 'Please upload files' })
+        }
         const post = new Post({})
 
         await post.save()

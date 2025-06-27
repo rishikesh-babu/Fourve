@@ -2,9 +2,7 @@ function ImageModal({ media, isopen, closeImage }) {
     if (!isopen || !media) return
 
     return (
-
-
-        <div className="absolute top-0 left-0 z-30 w-full pt-16 bg-black/50 ">
+        <div className="fixed top-0 left-0 z-30 w-full pt-16 bg-black/80 ">
             <div>
                 <button
                     onClick={closeImage}
@@ -13,12 +11,12 @@ function ImageModal({ media, isopen, closeImage }) {
                     ✕
                 </button>
 
-                <div className=" border-4 h-[90dvh] space-y-5 overflow-y-auto">
+                <div className="pb-5 h-[90dvh] space-y-5 overflow-y-auto">
                     {media?.map((item, index) => (
                         item?.type === "image" ? (
-                            <img src={item?.url} alt="" className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto object-contain " />
+                            <img src={item?.url} alt="" className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto border border-sky-600 rounded object-contain " />
                         ) : item?.type === "video" ? (
-                            <video src={item?.url} controls className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto object-contain" />
+                            <video src={item?.url} controls className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto border border-sky-600 rounded object-contain" />
                         ) : null
                     ))}
                 </div>

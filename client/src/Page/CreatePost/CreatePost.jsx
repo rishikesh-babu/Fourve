@@ -17,12 +17,15 @@ function CreatePost() {
     }
 
     function uploadFile() {
+        if (files.length === 0) {
+            return toast.error('Please select files')
+        }
+
         const formData = new FormData()
 
         for (const file of files) {
             formData.append('images', file)
         }
-        return
 
         toast.promise(
             axiosInstance({
@@ -36,7 +39,7 @@ function CreatePost() {
                 })
                 .catch((err) => {
                     console.log('err :>> ', err);
-                    toast.error(err?.response?.data?.message)
+                    toast.error(err?.response?.data?.message || 'Failed to upload')
                 }),
             {
                 pending: 'Uploading'
@@ -47,12 +50,12 @@ function CreatePost() {
     }
 
     return (
-        <div className='pt-6 px-1 h-full flex flex-col justify-between'>
+        <div className='pt-6 px-1 h-full overflow-y-auto flex flex-col justify-between'>
             <div className='text-center text-3xl font-semibold '>
                 Upload Image
             </div>
 
-            <div className='overflow-x-auto whitespace-nowrap flex items-center'>
+            <div className='overflow-x-auto overflow-y-hidden whitespace-nowrap flex items-center'>
                 <div className='mx-auto px-5 space-x-4'>
                     {files?.map((file, index) => {
                         const src = URL.createObjectURL(file)
