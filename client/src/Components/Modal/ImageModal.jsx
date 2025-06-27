@@ -14,9 +14,9 @@ function ImageModal({ media, isopen, closeImage }) {
                 <div className="pb-5 h-[90dvh] space-y-5 overflow-y-auto">
                     {media?.map((item, index) => (
                         item?.type === "image" ? (
-                            <img src={item?.url} alt="" className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto border border-sky-600 rounded object-contain " />
+                            <img src={item?.url} alt="" className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto rounded object-contain " />
                         ) : item?.type === "video" ? (
-                            <video src={item?.url} controls className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto border border-sky-600 rounded object-contain" />
+                            <video src={item?.url} controls className=" w-[95%] max-h-[100%] sm:w-[90%] mx-auto rounded object-contain" />
                         ) : null
                     ))}
                 </div>
