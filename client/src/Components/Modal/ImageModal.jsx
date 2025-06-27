@@ -2,7 +2,7 @@ function ImageModal({ media, isopen, closeImage }) {
     if (!isopen || !media) return
 
     return (
-        <div className="fixed top-0 left-0 z-30 w-full pt-16 bg-black/80 ">
+        <div className="fixed top-0 left-0 z-30 w-full pt-16 bg-black/95 ">
             <div>
                 <button
                     onClick={closeImage}
