@@ -5,6 +5,8 @@ import { toast } from 'react-toastify'
 function CreatePost() {
     const [files, setFiles] = useState([])
 
+    const screenSize = window.innerWidth
+
     function handleFile(e) {
         const selectedFile = Array.from(e.target.files)
         setFiles(selectedFile)
@@ -48,7 +50,7 @@ function CreatePost() {
     return (
         <div className='pt-6 h-full flex flex-col justify-between'>
             <div className='text-center text-3xl font-semibold '>
-                Upload Image
+                Upload Image {screenSize}
             </div>
 
             <div className='overflow-x-auto whitespace-nowrap flex items-center'>

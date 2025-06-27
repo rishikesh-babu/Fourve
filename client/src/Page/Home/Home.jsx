@@ -59,33 +59,30 @@ function Home() {
                     <div
                         onClick={() => openImage(post.media)}
                         key={postIndex}
-                        className="relative overflow-x-auto whitespace-nowrap hover:cursor-pointer"
+                        className="relative aspect-[4/3] overflow-x-auto whitespace-nowrap hover:cursor-pointer"
                     >
-                        {/* Preview Container */}
-                        <div className="relative size-full ">
-                            {/* Top-left badge if multiple media */}
-                            {post?.media?.length > 1 && (
-                                <div className="absolute z-10 top-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded flex items-center gap-1">
-                                    <FaImages className="text-sm" />
-                                    <span>{post.media.length}</span>
-                                </div>
-                            )}
+                        {/* Top-left badge if multiple media */}
+                        {post?.media?.length > 1 && (
+                            <div className="absolute z-10 top-2 left-2 px-2 py-1 bg-black text-white text-xs rounded flex items-center gap-1">
+                                <FaImages className="text-sm" />
+                                <span>{post.media.length}</span>
+                            </div>
+                        )}
 
-                            {/* Media Display */}
-                            {post?.media[0]?.type === 'image' ? (
-                                <img
-                                    src={post.media[0]?.url}
-                                    className="size-full object-cover border-2 border-blue-500 rounded-lg"
-                                    alt=""
-                                />
-                            ) : post?.media[0]?.type === 'video' ? (
-                                <video
-                                    src={post.media[0]?.url}
-                                    className="size-full object-cover border-2 border-blue-500 rounded-lg"
-                                    controls
-                                />
-                            ) : null}
-                        </div>
+                        {/* Media Display */}
+                        {post?.media[0]?.type === 'image' ? (
+                            <img
+                                src={post.media[0]?.url}
+                                className="size-full object-cover border-2 border-blue-500 rounded-lg"
+                                alt=""
+                            />
+                        ) : post?.media[0]?.type === 'video' ? (
+                            <video
+                                src={post.media[0]?.url}
+                                className="size-full object-cover border-2 border-blue-500 rounded-lg"
+                                controls
+                            />
+                        ) : null}
                     </div>
                 ))}
             </div>
