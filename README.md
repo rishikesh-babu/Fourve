@@ -3,7 +3,12 @@
 A responsive gallery web application built as part of the Fourve Internship Task. It supports viewing and filtering images and videos, viewing grouped images (like albums), and offers a modern lightbox viewer experience.
 
 ---
-# Setup Instruction
+## 🔗 Live Demo
+
+[Visit the site](https://your-live-demo-url.com)
+
+---
+## Setup Instruction
 
 ### 1. Clone the Repository
 
@@ -12,26 +17,28 @@ git clone https://github.com/rishikesh-babu/Fourve.git
 cd Fourve
 ```
 
-### 2. Backend Setup
-`Go to Folder and install dependencies`
+### 2. 🧩 Backend Setup
+
+Go to Folder and install dependencie
 ```sh
 cd server
 npm install
 ```
 
-`Start Server`
+Start Server
 ```sh
 npm start
 ```
 
-### 3. Frontend Setup
-`Go to folder and install dependencies`
+### 3. 🎨 Frontend Setup
+
+Go to folder and install dependencies
 ```sh
 cd client
 npm install 
 ```
 
-`Start Frontend Server`
+Start Frontend Server
 ```sh
 npm run dev
 ```
