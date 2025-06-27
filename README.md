@@ -1,4 +1,4 @@
-# 📸 Gallery Website – Fourve Internship
+# 📸 Gallery Website 
 
 A responsive gallery web application built as part of the Fourve Internship Task. It supports viewing and filtering images and videos, viewing grouped images (like albums), and offers a modern lightbox viewer experience.
 
@@ -13,8 +13,6 @@ A responsive gallery web application built as part of the Fourve Internship Task
 - 📷 Display media in:
   - Standalone format
   - Grouped stacks (albums)
-- 💡 Lightbox-style enlarged view on click
-- 🖱️ Scroll through media in lightbox
 - 📱 Fully responsive design
 
 ---
@@ -34,7 +32,6 @@ A responsive gallery web application built as part of the Fourve Internship Task
 The app uses two MongoDB collections: `posts` and `media`.
 
 ### 📄 Post Schema (`posts` collection)
-```js
 {
   createdAt: {
     type: Date,
@@ -42,8 +39,9 @@ The app uses two MongoDB collections: `posts` and `media`.
   }
 }
 
+
 ### 📄 Media Schema (`media` collection)
-```js
+
 {
    url: {
         type: String, 
