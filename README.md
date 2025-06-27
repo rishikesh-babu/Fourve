@@ -25,22 +25,42 @@ A responsive gallery web application built as part of the Fourve Internship Task
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Others**: Axios, Mongoose
+- **Cloud Storage**: Cloudinary
 
 ---
 
 ## 🧱 Database Schema
 
-Here’s a sample MongoDB schema for storing media:
+The app uses two MongoDB collections: `posts` and `media`.
 
+### 📄 Post Schema (`posts` collection)
 ```js
 {
-  title: String,
-  media: [
-    {
-      url: String,
-      type: "image" | "video",
-      groupId?: String // Optional for albums
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+}
+
+### 📄 Media Schema (`media` collection)
+```js
+{
+   url: {
+        type: String, 
+        required: true,
+    },
+    postId: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Post', 
+        required: true
+    }, 
+    type: {
+        type: String, 
+        enum: ['image', 'video'], 
+        required: true,
+    }, 
+    createdAt: {
+        type: Date, 
+        default: Date.now
     }
-  ],
-  createdAt: Date
 }
